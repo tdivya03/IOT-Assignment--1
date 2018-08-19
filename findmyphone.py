@@ -20,8 +20,8 @@ def search(user_name, device_name):
         time.sleep(3) #Sleep three seconds 
         nearby_devices = bluetooth.discover_devices()
 #search for device name with bluetooth address
-            for addr, name in nearby_devices:
-               print("  %s - %s" % (addr, name))
+      for addr, name in nearby_devices:
+          print("  %s - %s" % (addr, name))
             if device_name == bluetooth.lookup_name(mac_address, timeout=5):
                 device_address = mac_address
                 break

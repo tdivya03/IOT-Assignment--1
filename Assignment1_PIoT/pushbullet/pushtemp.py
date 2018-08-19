@@ -2,7 +2,7 @@
 import requests
 import json
 import os
-import sensehat
+from sense_hat import SenseHat
 
 ACCESS_TOKEN="o.X75S09HiwhN9Z4NMaDzyl0Is0vrawu9c"
 
@@ -21,13 +21,17 @@ def send_notification_via_pushbullet(title, body):
         raise Exception('Something wrong')
     else:
         print('complete sending')
-
+# defining temperatue notification
 #main function
-def main():
-    ip_address = os.popen('hostname -I').read()
-	temp = sense.get_temperature()
-	
-    send_notification_via_pushbullet(ip_address,temp, "From Raspberry Pi")
+def main ():
+    sense = SenseHat ()
+    temp = sense.get_temperature ()
+    temp = round(temp,1)
+    if temp < 20.0:
+       ip_address = os.popen('hostname -I').read()
+       send_notification_via_pushbullet(ip_address,"Temperature is cool,wear a jacket")     
+    else:
+       send_notification_via_pushbullet(ip_address,"Temperature is pleasant and no need for a jacket")
 
 #Execute
 main()
