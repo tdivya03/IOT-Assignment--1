@@ -21,7 +21,7 @@ def send_notification_via_pushbullet(title, body):
         raise Exception('Something wrong')
     else:
         print('complete sending')
-
+# defining temperatue notification
 #main function
 def main ():
     sense = SenseHat ()
