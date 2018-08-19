@@ -7,8 +7,6 @@ from sense_hat import SenseHat
 
 # Main function
 def main():
-    nearby_devices = discover_devices(lookup_names = True)
-    print "found %d devices" % len(nearby_devices)
     user_name = input("Enter your name: ")
     device_name = input("Enter the name of your phone: ")
     search(user_name, device_name)
