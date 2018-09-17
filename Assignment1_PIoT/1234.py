@@ -14,8 +14,7 @@ def search():
     while True:
         dt = time.strftime("%a, %d %b %y %H:%M:%S", time.localtime())
         print("\nCurrently: {}".format(dt))
-        time.sleep(5) #Sleep three seconds
-		# Searching for devices within Raspberry range
+        time.sleep(3) #Sleep three seconds 
         nearby_devices = bluetooth.discover_devices()
 
         for mac_address in nearby_devices:
